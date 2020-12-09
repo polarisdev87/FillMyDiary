@@ -1,0 +1,155 @@
+{
+	"name": "fmd-frontend",
+	"version": "1.0.0",
+	"description": "Fill My Diary, React, GraphQL, Next and Apollo",
+	"main": "index.js",
+	"scripts": {
+		"dev": "next -p 7774",
+		"build": "next build",
+		"start": "next start -p $PORT",
+		"test": "NODE_ENV=test jest --watch",
+		"test-win": "SET NODE_ENV=test&& jest --watch",
+		"heroku-postbuild": "next build",
+		"storybook": "start-storybook -p 9001 -c .storybook"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"@babel/core": "^7.2.2",
+		"@sentry/browser": "^4.6.4",
+		"@storybook/react": "^4.1.11",
+		"@zeit/next-sass": "^1.0.1",
+		"apollo-boost": "^0.1.16",
+		"apollo-cache-inmemory": "^1.6.0",
+		"apollo-client": "^2.6.0",
+		"apollo-link": "^1.2.11",
+		"apollo-link-context": "^1.0.17",
+		"apollo-link-error": "^1.1.10",
+		"apollo-link-http": "^1.5.14",
+		"apollo-link-rest": "^0.7.0",
+		"babel-core": "^7.0.0-bridge.0",
+		"babel-loader": "^8.0.5",
+		"babel-plugin-inline-react-svg": "^1.0.1",
+		"babel-plugin-styled-components": "^1.7.1",
+		"chart.js": "^2.7.3",
+		"date-fns": "^2.0.0-alpha.7",
+		"dotenv": "^7.0.0",
+		"downshift": "^2.2.3",
+		"enzyme": "^3.6.0",
+		"enzyme-adapter-react-16": "^1.5.0",
+		"faker": "^4.1.0",
+		"google-map-react": "^1.1.2",
+		"graphql": "^14.1.1",
+		"graphql-anywhere": "^4.1.27",
+		"graphql-tag": "^2.10.1",
+		"isomorphic-unfetch": "^3.0.0",
+		"lodash.debounce": "^4.0.8",
+		"milligram": "^1.3.0",
+		"moment": "^2.24.0",
+		"next": "^7.0.0",
+		"next-ga": "^2.3.4",
+		"next-images": "^1.0.4",
+		"next-with-apollo": "^3.1.3",
+		"node-sass": "^4.11.0",
+		"nprogress": "^0.2.0",
+		"prop-types": "^15.6.2",
+		"react": "^16.8.1",
+		"react-adopt": "^0.6.0",
+		"react-apollo": "^2.2.1",
+		"react-chartkick": "^0.3.0",
+		"react-color": "^2.17.0",
+		"react-dates": "^18.4.1",
+		"react-dom": "^16.8.1",
+		"react-google-maps-loader": "^4.2.5",
+		"react-google-places-suggest": "^3.5.2",
+		"react-grid-system": "^4.4.2",
+		"react-intersection-observer": "^7.0.0",
+		"react-stripe-checkout": "^2.6.3",
+		"react-tagsinput": "^3.19.0",
+		"react-to-print": "^2.0.0-alpha.7",
+		"react-transition-group": "^2.5.0",
+		"react-vis": "^1.11.6",
+		"styled-components": "^4.1.2",
+		"ua-parser-js": "^0.7.19",
+		"universal-cookie": "^3.0.7",
+		"waait": "^1.0.2"
+	},
+	"devDependencies": {
+		"babel-jest": "^23.6.0",
+		"babel-plugin-module-resolver": "^3.1.1",
+		"casual": "^1.5.19",
+		"enzyme-to-json": "^3.3.4",
+		"graphql-tools": "^4.0.0",
+		"jest": "^23.6.0",
+		"jest-transform-graphql": "^2.1.0"
+	},
+	"jest": {
+		"setupTestFrameworkScriptFile": "<rootDir>/jest.setup.js",
+		"testPathIgnorePatterns": [
+			"<rootDir>/.next/",
+			"<rootDir>/node_modules/"
+		],
+		"transform": {
+			"\\.(gql|graphql)$": "jest-transform-graphql",
+			".*": "babel-jest",
+			"^.+\\.js?$": "babel-jest"
+		}
+	},
+	"//": "This is our babel config, I prefer this over a .babelrc file",
+	"babel": {
+		"env": {
+			"development": {
+				"presets": [
+					"next/babel"
+				],
+				"plugins": [
+					"inline-react-svg",
+					[
+						"styled-components",
+						{
+							"ssr": true,
+							"displayName": true
+						}
+					]
+				]
+			},
+			"production": {
+				"presets": [
+					"next/babel"
+				],
+				"plugins": [
+					"inline-react-svg",
+					[
+						"styled-components",
+						{
+							"ssr": true,
+							"displayName": true
+						}
+					]
+				]
+			},
+			"test": {
+				"presets": [
+					[
+						"next/babel",
+						{
+							"preset-env": {
+								"modules": "commonjs"
+							}
+						}
+					]
+				],
+				"plugins": [
+					"inline-react-svg",
+					[
+						"styled-components",
+						{
+							"ssr": true,
+							"displayName": true
+						}
+					]
+				]
+			}
+		}
+	}
+}

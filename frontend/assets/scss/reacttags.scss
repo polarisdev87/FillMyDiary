@@ -1,0 +1,37 @@
+@import "vars.scss";
+
+.react-tagsinput {
+	margin-top: $spacing-default;
+	overflow: hidden;
+}
+
+.react-tagsinput--focused {
+	border-color: $color-primary;
+}
+
+.react-tagsinput-tag {
+	border-radius: 2px;
+	display: inline-block;
+	margin-bottom: $spacing-small;
+	margin-right: $spacing-tiny;
+	padding: $spacing-small;
+
+	background-color: rgba($color-primary, 0.1);
+	border: 1px solid $color-primary;
+	color: $color-primary;
+	font-size: 16px;
+}
+
+.react-tagsinput-remove {
+	cursor: pointer;
+	font-weight: bold;
+}
+
+.react-tagsinput-tag a::before {
+	content: "×";
+	margin-left: $spacing-small;
+}
+
+.react-tagsinput-input {
+	margin-top: $spacing-small !important;
+}

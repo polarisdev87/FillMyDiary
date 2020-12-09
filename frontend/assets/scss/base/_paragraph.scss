@@ -1,0 +1,11 @@
+/* PARAGRAPH */
+
+p {
+	margin-top: 0;
+
+	font-family: $font-family-secondary;
+
+	+ p {
+		margin-top: $spacing-default;
+	}
+}

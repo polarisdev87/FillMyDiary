@@ -1,0 +1,345 @@
+# import * from './generated/prisma.graphql'
+
+scalar DateTime
+
+type Mutation {
+	## APPLICATION MUTATIONS
+	acceptApplication(id: ID!, job: ID!, user: ID!): Application
+	createApplication(
+		id: ID!
+		token: String!
+		open: Boolean
+		successful: Boolean
+	): Application!
+	deleteApplication(id: ID!): Application
+	updateApplication(
+		id: ID!
+		job: ID
+		open: Boolean
+		successful: Boolean
+		token: String
+		user: ID
+	): Application
+
+	## JOB MUTATIONS
+	createJob(
+		additional: String
+		address: String
+		certifications: String
+		city: String
+		days: Int
+		description: String
+		endDate: DateTime
+		latitude: String
+		longitude: String
+		paymentType: String
+		postcode: String
+		price: Int
+		reviewedByOwner: Boolean
+		reviewedByWorker: Boolean
+		startDate: DateTime
+		stage: String!
+		title: String
+		trades: [ID!]!
+	): Job!
+
+	createJobAdmin(
+		additional: String
+		address: String
+		certifications: String
+		days: Int
+		description: String
+		endDate: DateTime
+		latitude: String
+		longitude: String
+		paymentType: String
+		postcode: String
+		price: Int
+		reviewedByOwner: Boolean
+		reviewedByWorker: Boolean
+		startDate: DateTime
+		stage: String!
+		title: String
+		trades: [ID!]!
+		user: ID!
+	): Job!
+
+	deleteJob(id: ID!): Job
+	outstandingJob(id: ID!, token: String!): Job
+
+	updateJob(
+		id: ID!
+		additional: String
+		address: String
+		certifications: String
+		days: Int
+		description: String
+		endDate: DateTime
+		latitude: String
+		longitude: String
+		paymentType: String
+		postcode: String
+		price: Int
+		reviewedByOwner: Boolean
+		reviewedByWorker: Boolean
+		stage: String
+		startDate: DateTime
+		stage: String
+		title: String
+		trades: [ID]
+	): Job
+
+	## ORDER MUTATIONS
+	createOrder(id: ID!): Application!
+	completeOrder(id: ID!, token: String!): Order!
+	deleteOrder(id: ID!): Order
+	updateOrder(
+		id: ID!
+		charge: String
+		complete: Boolean
+		job: ID
+		total: Int
+		user: ID
+	): Order
+
+	## REVIEW MUTATIONS
+	createReview(
+		fieldOne: Boolean
+		fieldTwo: Boolean
+		fieldThree: Boolean
+		job: ID
+		score: Int!
+		type: String!
+		reviewer: String!
+	): Review!
+	deleteReview(id: ID!): Review
+	updateReview(
+		id: ID!
+		fieldOne: Boolean
+		fieldTwo: Boolean
+		fieldThree: Boolean
+		job: ID
+		score: Int
+		type: String
+		reviewer: String
+		user: ID
+	): Review
+
+	## APPLICATION MUTATIONS
+	updateSetting(id: ID!, value: String!): Setting
+
+	## USER MUTATIONS
+	approveUser(userId: ID!): User
+
+	createUser(
+		address: String
+		approved: Boolean
+		businessName: String
+		certifications: String
+		city: String
+		coupon: String
+		email: String!
+		jobNotifications: Int
+		latitude: String
+		longitude: String
+		manualReferences: Boolean
+		manualReferenceOne: String
+		manualReferenceTwo: String
+		manualReferenceThree: String
+		outstandingPayment: Boolean
+		name: String!
+		password: String!
+		postcode: String
+		referenceOne: String
+		telephone: String!
+		token: String
+		trades: [ID!]!
+		town: String
+		website: String
+	): User!
+
+	deleteUser(id: ID!): User
+
+	loginUser(email: String!, password: String!): User!
+	logoutUser: SuccessMessage
+
+	requestReset(email: String!): SuccessMessage
+	resetPassword(
+		resetToken: String!
+		password: String!
+		confirmPassword: String!
+	): User!
+
+	updatePermissions(permissions: [Permission], userId: ID!): User
+
+	updateUser(
+		id: ID!
+		address: String
+		approved: Boolean
+		businessName: String
+		certifications: String
+		city: String
+		coupon: String
+		dateReview: DateTime
+		email: String
+		jobNotifications: Int
+		latitude: String
+		longitude: String
+		manualReferences: Boolean
+		manualReferenceOne: String
+		manualReferenceTwo: String
+		manualReferenceThree: String
+		outstandingPayment: Boolean
+		name: String
+		postcode: String
+		referenceOne: String
+		telephone: String
+		trades: [ID]
+		token: String
+		town: String
+		website: String
+	): User!
+
+	updateUserAdmin(
+		id: ID!
+		address: String
+		approved: Boolean
+		businessName: String
+		certifications: String
+		city: String
+		coupon: String
+		dateReview: DateTime
+		email: String
+		jobNotifications: Int
+		latitude: String
+		longitude: String
+		manualReferences: Boolean
+		manualReferenceOne: String
+		manualReferenceTwo: String
+		manualReferenceThree: String
+		outstandingPayment: Boolean
+		name: String
+		postcode: String
+		referenceOne: String
+		telephone: String
+		token: String
+		trades: [ID]
+		town: String
+		website: String
+	): User!
+}
+
+type Query {
+	application(where: ApplicationWhereUniqueInput!): Application
+	applications(
+		where: ApplicationWhereInput
+		orderBy: ApplicationOrderByInput
+		skip: Int
+		first: Int
+	): [Application]!
+	job(where: JobWhereUniqueInput!): Job
+	jobs(
+		where: JobWhereInput
+		orderBy: JobOrderByInput
+		skip: Int
+		first: Int
+	): [Job]!
+	me: User
+	order(where: OrderWhereUniqueInput!): Order
+	orders(
+		where: OrderWhereInput
+		orderBy: OrderOrderByInput
+		skip: Int
+		first: Int
+	): [Order]!
+	review(where: ReviewWhereUniqueInput!): Review
+	reviews(
+		where: ReviewWhereInput
+		orderBy: ReviewOrderByInput
+		skip: Int
+		first: Int
+	): [Review]!
+	setting(where: SettingWhereUniqueInput!): Setting
+	settings(
+		where: SettingWhereInput
+		orderBy: SettingOrderByInput
+		skip: Int
+		first: Int
+	): [Setting]!
+	trade(where: TradeWhereUniqueInput!): Trade
+	trades(
+		where: TradeWhereInput
+		orderBy: TradeOrderByInput
+		skip: Int
+		first: Int
+	): [Trade]!
+	user(where: UserWhereUniqueInput!): User
+	users(
+		where: UserWhereInput
+		orderBy: UserOrderByInput
+		skip: Int
+		first: Int
+	): [User]!
+}
+
+type Job {
+	id: ID!
+	additional: String
+	applications: [Application]
+	address: String
+	createdAt: DateTime!
+	certifications: String
+	days: Int!
+	description: String!
+	endDate: DateTime!
+	latitude: String
+	longitude: String
+	paymentType: String!
+	postcode: String!
+	price: Int!
+	reviewedByOwner: Boolean
+	reviewedByWorker: Boolean
+	stage: String!
+	startDate: DateTime!
+	title: String!
+	trades: [Trade]
+	user: User!
+}
+
+type User {
+	id: ID!
+	address: String
+	applications: [Application]
+	approved: Boolean
+	businessName: String
+	certifications: String
+	city: String
+	createdAt: DateTime
+	coupon: String
+	dateReview: DateTime
+	email: String!
+	jobNotifications: Int
+	jobs: [Job]
+	latitude: String
+	longitude: String
+	manualReferences: Boolean
+	manualReferenceOne: String
+	manualReferenceTwo: String
+	manualReferenceThree: String
+	openApplications: Int
+	outstandingPayment: Boolean
+	name: String!
+	permissions: [Permission]
+	postcode: String
+	rating: Int
+	referenceOne: String
+	telephone: String!
+	token: String
+	trades: [Trade!]!
+	town: String
+	website: String
+}
+
+type SuccessMessage {
+	message: String
+}

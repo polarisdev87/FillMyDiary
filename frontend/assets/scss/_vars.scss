@@ -1,0 +1,131 @@
+/*///////////////
+/// VARS
+*/
+//////////////
+
+/* SPACING UNITS */
+$spacing-default: 16px;
+$spacing-tiny: $spacing-default/4;
+$spacing-small: $spacing-default/2;
+$spacing-large: $spacing-default * 2;
+$spacing-huge: $spacing-default * 4;
+
+/* BORDERS */
+$border-radius-default: 3px;
+$border-radius-input: 3px;
+
+/* BOX SHADOW */
+$boxshadow-global: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+
+/* BREAKPOINTS */
+$bp-mobile-small: 320px;
+$bp-mobile: 375px;
+$bp-mobile-large: 440px;
+$bp-tablet: 768px;
+$bp-grid-stack: $bp-tablet;
+$bp-tablet-large: 1024px;
+$bp-desktop: 1400px;
+$bp-desktop-large: 1920px;
+$bp-4k: 2560px;
+$bp-sm: 576px;
+$bp-md: 768px;
+$bp-lg: 992px;
+$bp-xl: 1200px;
+
+/* COLOURS */
+$color-white: #ffffff;
+$color-off-white: #f8f8f8;
+$color-grey-light: #535353;
+$color-grey: #2f2e2e;
+$color-black: #000000;
+$color-primary: #1a85ff;
+$color-secondary: #1a85ff;
+
+/* FONT VARIABLES */
+$font-family-primary: "Euclid", Arial, Helvetica Neue, Helvetica, sans-serif;
+$font-family-secondary: "SuisseIntl", Arial, Helvetica Neue, Helvetica,
+	sans-serif;
+
+$font-weight-default: 400;
+$font-weight-bold: 700;
+
+/* GRID VARIABLES */
+$grid-gap-default: $spacing-large;
+$grid-gap-large: $spacing-large * 1.5;
+$grid-gap-huge: $spacing-huge * 1.5;
+
+/* SIZE UNITS */
+$heading-height: 100px;
+$mobile-height: 110px;
+$width-content: 1170px;
+
+$xs: 576px;
+$sm: 768px;
+$md: 992px;
+$lg: 1200px;
+$xl: 1440px;
+$white: #ffffff;
+$offWhite: #f2f4f8;
+$grey100: #d9d9d9;
+$grey200: #bfbfbf;
+$grey300: #a6a6a6;
+$grey400: #8c8c8c;
+$grey500: #737373;
+$grey600: #595959;
+$grey700: #404040;
+$grey800: #262626;
+$grey900: #0d0d0d;
+$grey: #2f2e2e;
+$black: #141213;
+$blackAbsolute: #000;
+$blue100: #e5f1ff;
+$blue200: #b3d6ff;
+$blue300: #80bbff;
+$blue400: #4d9fff;
+$blue500: #1a85ff;
+$blue600: #006be6;
+$blue700: #0054b3;
+$blue800: #003c80;
+$blue900: #00244d;
+$blue: #1a85ff;
+$green100: #eeffe5;
+$green200: #cdffb3;
+$green300: #abff80;
+$green400: #89ff4d;
+$green500: #68ff1a;
+$green600: #4ee600;
+$green700: #3db300;
+$green800: #2b8000;
+$green900: #1a4d00;
+$green: #4ee600;
+$greenRGB: 78, 230, 0;
+$purple100: #ede5ff;
+$purple200: #ede5ff;
+$purple300: #a480ff;
+$purple400: #7f4dff;
+$purple500: #5b1aff;
+$purple600: #4100e6;
+$purple700: #3300b3;
+$purple800: #240080;
+$purple900: #16004d;
+$purple: #5b1aff;
+$purpleRGB: 91, 26, 255;
+$red100: #ffe5e5;
+$red200: #ffb3b3;
+$red300: #ff8080;
+$red400: #ff4d4d;
+$red500: #ff1a1a;
+$red600: #e60000;
+$red700: #b30000;
+$red800: #800000;
+$red900: #4d0000;
+$red: #ff1a1a;
+$redRGB: 255, 26, 26;
+$primary: #1a85ff;
+$primaryRGB: 26, 133, 255;
+$secondary: #ffae1a;
+$grey: #3a3a3a;
+$lightgrey: #e1e1e1;
+$offWhite: #ededed;
+$maxWidth: 1000px;
+$bs: 0 12px 24px 0 rgba(0, 0, 0, 0.09);

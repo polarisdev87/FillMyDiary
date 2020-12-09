@@ -1,0 +1,136 @@
+type Application {
+	id: ID! @unique
+	customerID: String!
+	job: Job! @relation(name: "JobApplications", onDelete: SET_NULL)
+	open: Boolean!
+	successful: Boolean!
+	token: String
+	user: User! @relation(name: "UsersApplications", onDelete: SET_NULL)
+
+	createdAt: DateTime!
+	updatedAt: DateTime!
+}
+
+type Job {
+	id: ID! @unique
+	additional: String
+	applications: [Application]
+		@relation(name: "JobApplications", onDelete: CASCADE)
+	address: String
+	certifications: String
+	days: Int!
+	description: String!
+	endDate: DateTime!
+	latitude: String
+	longitude: String
+	orders: [Order] @relation(name: "OrderJob", onDelete: CASCADE)
+	paymentType: String!
+	postcode: String!
+	price: Int!
+	reviews: [Review] @relation(name: "JobReviews", onDelete: CASCADE)
+	reviewedByOwner: Boolean
+	reviewedByWorker: Boolean
+	stage: String!
+	startDate: DateTime!
+	title: String!
+	trades: [Trade]
+	user: User! @relation(name: "UsersJobs", onDelete: SET_NULL)
+
+	createdAt: DateTime!
+	updatedAt: DateTime!
+}
+
+type Order {
+	id: ID! @unique
+	charge: String!
+	complete: Boolean!
+	job: Job! @relation(name: "OrderJob", onDelete: SET_NULL)
+	total: Int!
+	user: User! @relation(name: "UsersOrders", onDelete: SET_NULL)
+
+	createdAt: DateTime!
+	updatedAt: DateTime!
+}
+
+enum Permission {
+	ADMIN
+	ITEMCREATE
+	ITEMUPDATE
+	ITEMDELETE
+	PERMISSIONUPDATE
+	USER
+}
+
+type Review {
+	id: ID! @unique
+	fieldOne: Boolean
+	fieldTwo: Boolean
+	fieldThree: Boolean
+	job: Job! @relation(name: "JobReviews", onDelete: SET_NULL)
+	reviewer: String!
+	score: Int!
+	type: String!
+	user: User! @relation(name: "UsersReviews", onDelete: SET_NULL)
+
+	createdAt: DateTime!
+	updatedAt: DateTime!
+}
+
+type Trade {
+	id: ID! @unique
+	name: String! @unique
+	slug: String! @unique
+}
+
+enum SettingTitle {
+	ApplicationsPerDay
+	PerPage
+}
+
+type Setting {
+	id: ID! @unique
+	setting: SettingTitle! @unique
+	value: String! @unique
+}
+
+type User {
+	id: ID! @unique
+	address: String
+	applications: [Application]
+		@relation(name: "UsersApplications", onDelete: CASCADE)
+	approved: Boolean
+	businessName: String
+	certifications: String
+	city: String
+	coupon: String
+	dateReview: DateTime
+	email: String! @unique
+	jobNotifications: Int
+	jobs: [Job] @relation(name: "UsersJobs", onDelete: CASCADE)
+	latitude: String
+	longitude: String
+	manualReferences: Boolean
+	manualReferenceOne: String
+	manualReferenceTwo: String
+	manualReferenceThree: String
+	name: String!
+	openApplications: Int
+	orders: [Order] @relation(name: "UsersOrders", onDelete: CASCADE)
+	outstandingPayment: Boolean
+	password: String!
+	permissions: [Permission]
+	postcode: String
+	rating: Int
+	resetToken: String
+	resetTokenExpiry: Float
+	referenceOne: String
+	reviews: [Review] @relation(name: "UsersReviews", onDelete: CASCADE)
+	telephone: String!
+	trades: [Trade]
+	token: String
+	town: String
+	website: String
+
+	createdAt: DateTime!
+	updatedAt: DateTime!
+}

@@ -1,0 +1,19 @@
+/* BODY */
+
+body {
+	font-family: $font-family-primary;
+	font-size: 1.6rem;
+	line-height: 1.5;
+
+	&.fixed {
+		overflow: hidden;
+	}
+}
+
+.body--full {
+	@supports (min-height: 100vh) {
+		display: flex;
+		flex-direction: column;
+		min-height: 100vh;
+	}
+}

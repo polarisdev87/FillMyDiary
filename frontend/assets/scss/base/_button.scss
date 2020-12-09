@@ -1,0 +1,93 @@
+/* BUTTON */
+
+button,
+input[type="button"],
+input[type="submit"],
+.button,
+.link--action,
+.link--cta {
+	border-radius: $border-radius-default;
+	display: inline-block;
+	padding: $spacing-default;
+	position: relative;
+
+	background: $color-primary;
+	border: none;
+	color: #ffffff;
+	cursor: pointer;
+	font-family: $font-family-primary;
+	font-size: 1.5rem;
+	font-weight: 700;
+	letter-spacing: 0.5px;
+	line-height: 1.5rem;
+	outline: none;
+	text-align: center;
+	text-decoration: none;
+	text-transform: capitalize;
+	transition: 0.2s all ease;
+
+	i,
+	svg {
+		color: $color-white;
+		margin-left: $spacing-small;
+	}
+
+	& + & {
+		margin-top: $spacing-default;
+	}
+}
+
+button[disabled],
+.button--disabled {
+	background-color: rgba($color-grey-light, 0.2);
+	border: none;
+	cursor: not-allowed;
+}
+
+button[type="reset"] {
+	background: $color-secondary;
+	background: linear-gradient(
+		to bottom,
+		lighten($color-secondary, 2.5%) 0%,
+		$color-secondary 100%
+	);
+	border: 1px $color-secondary;
+	opacity: 0.5;
+
+	@include active-states() {
+		opacity: 1;
+	}
+}
+
+.button--notext {
+	font-size: 0px;
+	color: transparent;
+}
+
+.button--secondary {
+	color: #737373;
+	background: #f1f1f1;
+	border: 1px solid #d9d9d9;
+	font-weight: normal;
+}
+
+.button--inline {
+	border-radius: inherit;
+	display: inherit;
+	padding: 0px;
+	position: inherit;
+	background: inherit;
+	border: inherit;
+	color: inherit;
+	cursor: inherit;
+	font-family: inherit;
+	font-size: inherit;
+	font-weight: inherit;
+	letter-spacing: inherit;
+	line-height: inherit;
+	outline: inherit;
+	text-align: inherit;
+	text-decoration: inherit;
+	text-transform: inherit;
+	transition: inherit;
+}

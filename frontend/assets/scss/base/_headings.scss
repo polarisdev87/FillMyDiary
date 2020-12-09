@@ -1,0 +1,102 @@
+/* HEADINGS */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin-bottom: $spacing-default;
+	margin-top: $spacing-default;
+
+	font-family: $font-family-primary;
+	font-weight: 700;
+	letter-spacing: 0.5px;
+	line-height: 1.25;
+	text-transform: capitalize;
+}
+
+$heading-1: 48px;
+$heading-2: 36px;
+$heading-3: 24px;
+$heading-4: 18px;
+$heading-5: 16px;
+$heading-6: 14px;
+$heading-tiny: 12px;
+
+h1,
+.h1 {
+	font-size: $heading-2;
+	font-weight: 700;
+}
+
+h2,
+.h2 {
+	font-size: $heading-3;
+	font-weight: 700;
+}
+
+h3,
+.h3 {
+	font-size: $heading-4;
+}
+
+h4,
+.h4 {
+	font-size: $heading-5;
+}
+
+h5,
+.h5 {
+	font-size: $heading-6;
+}
+
+h6,
+.h6 {
+	font-size: $heading-tiny;
+}
+
+@include bp-min-width($bp-lg) {
+	h1,
+	.h1 {
+		font-size: $heading-1;
+	}
+
+	h2,
+	.h2 {
+		font-size: $heading-2;
+	}
+
+	h3,
+	.h3 {
+		font-size: $heading-3;
+	}
+
+	h4,
+	.h4 {
+		font-size: $heading-4;
+	}
+
+	h5,
+	.h5 {
+		font-size: $heading-5;
+	}
+
+	h6,
+	.h6 {
+		font-size: $heading-6;
+	}
+}
+
+.icon {
+	align-items: center;
+	display: flex;
+}
+
+.heading {
+}
+
+.heading__icon {
+	height: 20px;
+	margin-left: auto;
+}

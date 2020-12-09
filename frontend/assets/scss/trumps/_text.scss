@@ -1,0 +1,30 @@
+/* TEXT */
+
+.text--bold {
+	font-weight: 700;
+}
+
+.text--capitalize {
+	text-transform: capitalize;
+}
+
+.text--uppercase {
+	text-transform: uppercase;
+}
+
+.text--left {
+	text-align: left;
+}
+
+.text--center {
+	text-align: center;
+}
+
+.text--right {
+	text-align: right;
+}
+
+.text--wrap {
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}
